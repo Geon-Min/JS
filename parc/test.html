@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--인라인 이벤트  -->
+    <button type="button" onclick="check()">인라인 이벤트</button>
+
+    <!-- 여러태그에 동일 인라인 이벤트 경우 -->
+    <button type="button" onclick="check2(this)" id="1">a</button>
+    <button type="button" onclick="check2(this)" id="2">a</button>
+    <button type="button" onclick="check2(this)" id="3">a</button>
+    <button type="button" onclick="check2(this)" id="4">a</button>
+    <button type="button" onclick="check2(this)" id="5">a</button>
+    <!-- 태그element 가 통째로 this로 넘어감 -->
+    <!-- this는 실행문맥의 자기자신을 나타냄 -->
+
+    <script>
+        function check() {
+            alert("헑!")
+            
+        }
+
+        function check2(a) { //원하는 임의의 매개변수
+
+            // console.log(a)
+            // console.log(a.type)
+            // console.log(a.onclick)
+            // console.log(a.id)
+
+            //innerHTML키워드는 선택된 태의 text요소를 가르킵니다.
+            console.log(a.innerHTML)
+
+            a.innerHTML = a.onclick;
+        }
+
+
+        
+
+    </script>
+
+</body>
+</html>

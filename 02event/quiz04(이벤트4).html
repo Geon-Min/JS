@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>자바스크립트 카운트</h3>
+    <!-- 인라인 이벤트를 써서 하나의 함수에서 처리
+        (this, value, innerHTML)
+    -->
+
+    <input type="text" value = "0" id ="count" disabled>
+    <button type="button" onclick="calc(this)" id = "+">+</button>
+    <button type="button" onclick="calc(this)" id = "-">-</button>
+
+    
+
+    <script>
+
+        var count = document.getElementById("count");
+        var value = count.value;
+       
+        function calc(a) {
+            if(a.id === '+'){
+                //console.log("더하기");
+                value++;
+                value.innerHTML = value.innerHTML + value;
+                
+            }
+            
+        }
+
+
+    </script>
+    
+</body>
+</html>
