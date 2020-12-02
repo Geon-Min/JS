@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- 아이디나, 비밀번호가 변경 될 떄, 예제처럼 처리되도록
+    구현하세요. -->
+    <!-- change, keyup 이벤트 활용-->
+    <div>
+        <form>
+            아이디: <input type="text" name="id"><br/>
+            <span class="idMsg"></span><br/>
+            비밀번호: <input type="password" name="pw"><br/>
+            <span class="pwMsg"></span>
+
+        </form>
+
+        <script>
+            var id = document.querySelector("input[name='id']");
+            var pw = document.querySelector("input[name='pw']");
+
+            id.addEventListener("keyup", function(){
+                //console.log(id.value);
+                if(id.value.length < 4){
+                    id.style.borderColor = "red"; //윤곽색
+                    document.querySelector(".idMsg").innerHTML = "아이디는 4글자 이상입니다.";
+                }else{//반대로
+                    id.style.borderColor = "green";
+                    document.querySelector(".idMsg").innerHTML = "";
+                }
+            });
+
+            //비밀번호도 같음
+
+            pw.addEventListener("keyup", function name(params) {
+                if(pw.value.length < 8){
+                    pw.style.borderColor = "red";
+                    document.querySelector(".pwMsg").innerHTML = "비밀번호 4글자 이상 입니다.";
+ 
+                } else{
+                    pw.style.borderColor = "green";
+                    document.querySelector(".pwMsg").innerHTML = "";
+                }
+                
+            });
+            
+
+        </script>
+
+
+
+
+    </div>
+    
+</body>
+</html>

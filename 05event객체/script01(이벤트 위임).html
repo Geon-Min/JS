@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--여태까지는 항상 값을 변경한다름에 버튼을 클릭하는 방식으로 사용했습니다.  -->
+    <!--동일한 형태의 여러 태그에 대해서 그 즉시 반영시키는 이벤트를 주려면 어떻게 할까요?  -->
+
+    <ul class="parent">
+        <li class="list">홍길동</li>
+        <li class="list">이순신</li>
+        <li class="list">홍길자</li>
+        <li class="list">홍길순</li>
+        <li class="list">홍길똥</li>
+    </ul>
+
+    <div class="result"></div>
+
+    <script>
+        var result = document.querySelector(".result");
+        var parent = document.querySelector(".parent");
+        parent.onclick = function () {
+            //이벤트 위임할 때 부모를 클릭해도 적용되는 문제가 있습니다.
+            //console.log(event.target); //현재 실행되는 이벤트 대상
+            //console.dir(event.target.tagName);
+            //console.log(event.currentTarget); //실제 이벤트가 걸려있는 부모
+
+            if(event.target.tagName !== 'LI') return; //ul일 경우에는 동작을 하지 않음
+            result.innerHTML = event.target.innerHTML;
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        table {
+            border-spacing: 0;border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>이벤트 속성을 이용해서 작성하세요</h2>
+    
+    <table>
+        <thead>
+             <th>번호</th>   
+             <th>제목</th>   
+             <th>내용</th>   
+             <th>삭제</th>  
+        </thead>
+        <tbody class = "table">
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class = "btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class = "btn">삭제</button></td>
+            </tr> 
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class = "btn">삭제</button></td>
+            </tr> 
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class = "btn">삭제</button></td>
+            </tr>      
+            
+        </tbody>
+
+    </table>
+
+
+
+    <script>
+        var list = document.querySelectorAll(".btn ");
+        for(var i = 0; i < list.length; i++){
+            list[i].onclick = function () {
+                // console.log(event.target)
+                event.target.parentElement.parentElement.remove();
+            }
+        }
+
+        var table = document.querySelector(".table");
+        table.onclick = function(){
+            console.dir(event.target)
+            if(event.target.className !== "btn") return;
+            event.target.parentElement.parentElement.remove();
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

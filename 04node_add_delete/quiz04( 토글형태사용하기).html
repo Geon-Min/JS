@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       .center{
+           text-align: center;
+       }
+
+       .content{
+           width: 50%;
+           margin: 0 auto;
+           overflow: hidden;
+           border: 1px solid #777;
+           padding: 5px;
+
+       }
+       .content .left,
+       .content .right{
+           float: left;
+           width: 50%;
+           padding: 5px;
+           box-sizing: border-box;
+
+       }
+
+       .content .right .inner{
+            overflow: auto; /*글씨가 칸에서 넘치면 스크롤 자동 생성*/
+       }
+
+       .content .inner{
+        border: 1px solid #777;
+        height: 300px;
+       }
+
+       img{
+           width: 100%;
+           height: 100%;
+       }
+
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <div class = "center">
+            <h2>style속성 활용하기</h2>
+            <button type="button" class = "btn">어둡게</button>
+            <button type="button" class = "name" id = "btn2">내용보기</button>
+        </div>
+
+
+    </header>
+
+    <hr/>
+   <section>
+        <div class = "content">
+            <div class="left">
+                <div class ="inner">
+                    <img src="1.jpg">
+                </div>
+            </div>
+            <div class="right">
+                <div class = "inner">
+                    <p>자바 스크립트는 객체 기반의 스크립트 프로그래밍 언어이다.</p>
+                    <a href="https://www.naver.com">위키백과</a>
+                </div>
+            </div>
+        </div>
+
+   </section>
+
+
+    <script>
+
+        var btn = document.querySelector(".btn");
+        var tag = document.querySelectorAll("h2, p , a");
+        
+
+        btn.onclick = function () {
+
+            
+            if(btn.className === "btn"){
+                
+                document.body.style.backgroundColor = "black";
+                btn.className = "btn2";
+                tag[0].style.color = "white";
+                tag[1].style.color = "white";
+                tag[2].style.color = "white";
+                btn.innerHTML = "밝게";
+
+            }else{
+                
+                document.body.style.backgroundColor = "white";
+                btn.className = "btn";
+                tag[0].style.color = "black";
+                tag[1].style.color = "black";
+                tag[2].style.color = "black";
+                btn.innerHTML = "어둡게";
+ 
+            }
+            console.log(btn);
+            
+        }
+        
+        var btn2 = document.querySelector(".name");
+        var inner = document.querySelector(".right .inner");
+        var p = document.createElement("p");
+        p.innerHTML = "<p>이름 : 홍길동 나이 : 20세 능력구분 JAVA JSP ORACLE javascript</p>";
+        inner.appendChild(p);
+
+        
+
+        btn2.onclick = function () {
+            var content = document.querySelectorAll(".right .inner p, .right .inner a");
+            //console.log(content);
+
+            if(btn2.className === "name"){
+                p.style.display="block";
+                content[1].style.display = "none";
+                content[0].style.display = "none";
+                btn2.className = "cont";
+                btn2.innerHTML = "내용보기";
+
+            }else{
+                p.style.display = "none";
+                content[1].style.display = "block";
+                content[0].style.display = "block";
+                btn2.className = "name";
+                btn2.innerHTML = "이름보기";
+
+            }
+            
+        }      
+
+
+
+
+    </script>
+
+</body>
+</html>

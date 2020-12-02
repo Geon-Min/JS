@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    table {
+        border-spacing: 0; border-collapse: collapse;
+        width: 100%; text-align: center;
+    }
+
+    tr, th {
+        border: 1px solid black;
+    }
+
+</style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>번호</th>
+            <th>과정명</th>
+            <th>담당교수</th>
+            <th>관리</th>
+        </thead>
+        <tbody class = "list">
+            <tr>
+                <th>1</th>
+                <th>강남응용자바</th>
+                <th>홍길동</th>
+                <th>
+                    <button type="button" class = "info">시험기본정보</button>
+                    <button type="button" class = "test">시험출제</button>
+                    <button type="button" class = "result">시험결과</button>
+                    <button type="button" class = "admin">성적관리</button>
+                </th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>종로응용자바</th>
+                <th>홍길동</th>
+                <th>
+                    <button type="button" class = "info">시험기본정보</button>
+                    <button type="button" class = "test">시험출제</button>
+                    <button type="button" class = "result">시험결과</button>
+                    <button type="button" class = "admin">성적관리</button>
+                </th>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+
+        var list = document.querySelector(".list");
+        list.onclick = function() {
+
+            //1. 버튼이 아니면 실행을 종료
+            if(event.target.tagName !== "BUTTON") return;
+
+            //var classList = event.target.classList; //클래스 목록
+            
+            if(event.target.classList.contains("info")){
+                console.log(event.target, "시험기본정보")
+            }else if(event.target.classList.contains("test")){
+                console.log(event.target, "시험제출")
+            }else if(event.target.classList.contains("result")){
+                console.log(event.target,"시험결과")
+            }else if(event.target.classList.contains("admin")){
+                console.log(event.target,"성적관리");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

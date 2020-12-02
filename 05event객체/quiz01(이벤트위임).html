@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .imgList > li{
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h3>이벤트 속성을 이용해서 다음을 만들어보세요.</h3>
+    
+    <div>
+        <ul class = "imgList">
+            <li><img src="1.jpg" width ="100"></li>
+            <li><img src="2.jpg" width ="100"></li>
+            <li><img src="3.jpg" width ="100"></li>
+            <li><img src="4.jpg" width ="100"></li>
+        </ul>
+    </div>
+
+    <span>결과</span><br/>
+    <divc class="result">
+        <img src="1.jpg" width="300">
+    </div>
+
+
+    <script>
+      var img = document.querySelector(".result img");
+      var imgList = document.querySelectorAll("ul li img");
+
+       for(var i=0; i < imgList.length; i++){
+           
+           imgList[i].onclick = function () {
+               //console.log(event.currentTarget);
+                img.src = event.target.src;              
+           }
+       } 
+
+       //이벤트 위임방법
+
+    //    var img = document.querySelector(".result img"); //결과 img
+    //    var imgList = document.querySelector(".imgList"); //부모태그
+       
+    //    imgList.onclick = function (e) {
+    //        if(e.target.tagName !== 'IMG') return; //이미지 태그가 아니라면 종료
+    //        img.src = e.target.src;
+           
+    //    }
+
+
+    </script>
+
+</body>
+</html>

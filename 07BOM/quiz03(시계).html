@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bgImg{
+            position: absolute; /*body에 relative가 적용됨 , body위치 기반으로 */
+            top: 0px;
+            left: 0px;
+            z-index : -1; /*가장 뒤쪽으로 들어감*/
+            width: 100%;
+        }
+
+        .clock{color: blanchedalmond;}
+    </style>
+
+</head>
+<body data-img='{"1":"img/1.jpg","2":"img/2.jpg", "3":"img/3.jpg", "4":"img/4.jpg"}'>
+
+    <!-- object의 길이를 확인하는 문법은 검색 -->
+
+    <img class="bgImg"> <!--배경을 넣을 이미지-->
+    <div class="clock">
+        <h3>00:00:00</h3>
+
+    </div>
+
+
+
+    <script>
+
+        function createTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            var time = (hours < 10 ? "0"+hours : hours) + 
+            ":" + (minutes < 10 ? "0" + minutes : minutes )+ ":" 
+            + (seconds < 10 ? "0" +seconds : seconds) ;
+            //console.log(time);
+
+            document.querySelector(".clock h3").innerHTML = time;
+        }
+        
+        var count = 0; //json키값에 사용할 변수
+        function changeBackgroud() {
+            //body에 있는 dataset을 얻는다.
+             //console.dir(document.body)
+             //console.log(typeof data)
+             var data = document.body.dataset.img //data-img
+             var result = JSON.parse(data);
+             //console.log(result)
+
+             var bgImg = document.querySelector(".bgImg");
+             bgImg.src = result[++count]; //1로시작
+
+             //count를 0으로 초기화 해주는 작업
+             //console.dir(Object.keys(result).length);
+             if(Object.keys(result).length == count){ 
+                count = 0;
+             }
+        }
+
+        (function () {
+            createTime(); //시간 생성함수
+            setInterval(createTime,1000); //인터벌
+            changeBackgroud(); //배경 변경함수
+            setInterval(changeBackgroud,1000);
+        })();
+
+    </script>
+    
+</body>
+</html>

@@ -27,6 +27,20 @@
                  var list = document.querySelector(".box1 li");
                 list.innerHTML = "곧 퇴근 시간입니다.";
              }
+
+             //querySelectorAll
+             var btn2 = document.getElementById("btn2");
+
+             btn2.onclick = function () {
+                 
+                 var list = document.querySelectorAll(".box2 li");
+                 //console.log(list)
+
+                 for(var i=0; i<list.length; i++){
+                     list[i].innerHTML = "홍";
+                     list[i].style.color = "red";
+                 }
+             }
          }
 
      </script>
@@ -37,6 +51,17 @@
             <li>안녕</li>
             <li>헬로우</li>
             <li>니하오</li>
+
+        </ul>
+
+     </div>
+
+     <button type="button" id="btn2">querySelectorAll확인</button>
+     <div>
+        <ul class="box2">
+            <li>홍길동</li>
+            <li>홍길자</li>
+            <li>이순신</li>
 
         </ul>
 

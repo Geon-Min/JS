@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 속성변경함수 : setAtrribute(), getAttribute, removeAttribute()  -->
+
+    <form method="post" name="forms">
+        <input type="hidden" name="num"><br>
+        <input type="text" name="title"><br>
+
+        <input type="button" value="수정" onclick="change(this)">
+        <input type="button" value="추가" onclick="change(this)">
+
+    </form>
+
+    <script>
+
+        function change(a) {
+            // console.log(a.value)
+            // console.log(a.getAttribute("value"))
+            //속성명이 value인 값을 얻습니다.
+            var handle = a.getAttribute("value");
+
+            if(handle === '수정'){
+                //document.forms.action = "https://www.naver.com";    
+                document.forms.setAttribute("action","https://www.naver.com");
+                document.forms.submit();
+
+            }else if(handle === '추가'){
+                document.forms.setAttribute("action","https://www.google.com");
+                document.forms.submit();
+
+            }
+
+        }
+
+        console.log(document.forms);
+
+    </script>
+
+</body>
+</html>

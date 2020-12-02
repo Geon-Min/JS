@@ -12,25 +12,51 @@
         (this, value, innerHTML)
     -->
 
-    <input type="text" value = "0" id ="count" disabled>
-    <button type="button" onclick="calc(this)" id = "+">+</button>
-    <button type="button" onclick="calc(this)" id = "-">-</button>
+    <input type="text" value = "0" id ="count" readonly>
+    <button type="button" onclick="calc(this)" id = "plus">+</button>
+    <button type="button" onclick="calc(this)" id = "minus">-</button>
 
     
 
     <script>
 
-        var count = document.getElementById("count");
-        var value = count.value;
-       
-        function calc(a) {
-            if(a.id === '+'){
-                //console.log("더하기");
-                value++;
-                value.innerHTML = value.innerHTML + value;
+        // var count = document.getElementById("count");
+        // var value = count.value;
+        
+        // function calc(a) {
+
+        //     if(a.id === "plus"){
+        //         value++;
+        //         count.value = value;
                 
-            }
+                              
+                
+
+                
+        //     }else if(a.id === "minus"){
+        //         if(value > 0){
+        //             value--;
+        //             count.value = value;
+        //         }    
+        //     }
             
+        // }
+
+
+        function calc(oper) {
+            
+            var count = document.getElementById("count");
+
+            if(oper.innerHTML === "+"){
+                count.value++;
+            }else { // -인 경우
+
+                if(count.value <= 0){
+                    alert("0보다 작을 수 없습니다.");
+                    return; //함수의 종료
+                }
+                count.value--;
+            }
         }
 
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1 { 
+           border-bottom: 1px solid black;
+           text-align: center;
+           margin-bottom: 5px;
+           padding-bottom: 5px;
+        }
+
+        .box2{
+            width: 50%;
+            border: 1px solid black;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 5px;
+            text-align: center;
+            
+        }
+
+        img{
+            width: 100%;
+            float: left;
+                        
+        }
+
+        .text{
+            border: 1px solid black;
+            float: left;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class = "box1">
+        <h2>style속성 활용하기</h2>
+        <button type="button" id = "dark">어둡게</button>
+        <button type="button" id = "bright">밝게</button>
+    </div>
+
+
+    <div>
+        <div class = "box2">
+            <div>
+                <img src="3.jpg" alt="jpg3">
+            </div>
+            <div class = "text">
+            자바스크립는 객체 기반의 스트립트 프로그래밍 언어이다.
+            이 언어는 웹브라우저 내에서 주로 사용하며, 다른 응용 프로그램의
+            내장 객체에도 접근할 수 있는 기능을 가지고 있다.
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var h2 = document.querySelector("h2");
+        var box1 = document.querySelector(".box1");
+        var box2 = document.querySelector(".box2");
+        var text = document.querySelector(".text");
+        
+        dark.onclick = function(){
+            h2.style.color = "white";
+            box1.style.borderColor = "white";
+            box2.style.borderColor = "white";
+            text.style.color = "white";
+            text.style.borderColor = "white";
+            document.body.style.background = "black";
+
+        }
+
+        bright.onclick = function () {
+            h2.style.color = "black";
+            box1.style.borderColor = "black";
+            box2.style.borderColor = "black";
+            text.style.color = "black";
+            text.style.borderColor = "black";
+            document.body.style.background = "white";
+            
+        }
+
+
+    </script>
+
+</body>
+</html>
